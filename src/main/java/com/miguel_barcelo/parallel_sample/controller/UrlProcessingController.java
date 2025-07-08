@@ -19,8 +19,8 @@ public class UrlProcessingController {
 		this.service = service;
 	}
 	
-	@PostMapping("/process")
-	public UrlResponse processUrls(@RequestBody UrlRequest request) {
-		return service.processUrlsConcurrently(request);
+	@PostMapping("/process-async")
+	public UrlResponse processUrlsAsync(@RequestBody UrlRequest request) {
+		return service.processUrlsConcurrentlyAsync(request);
 	}
 }
