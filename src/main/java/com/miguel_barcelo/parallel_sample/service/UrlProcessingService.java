@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import com.miguel_barcelo.parallel_sample.dto.UrlRequest;
 import com.miguel_barcelo.parallel_sample.dto.UrlResponse;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class UrlProcessingService {
 	
@@ -34,6 +37,8 @@ public class UrlProcessingService {
 				.toList();
 		
 		long endTime = System.currentTimeMillis();
+		
+		log.info("🧮 ASYNC processing finished in {} ms", (endTime - startTime));
 		
 		return new UrlResponse(results, endTime - startTime, Thread.currentThread().getName());
 	}
