@@ -23,4 +23,14 @@ public class UrlProcessingController {
 	public UrlResponse processUrlsAsync(@RequestBody UrlRequest request) {
 		return service.processUrlsConcurrentlyAsync(request);
 	}
+	
+	@PostMapping("/benchmark/sync")
+	public UrlResponse processSync(@RequestBody UrlRequest request) {
+		return service.processUrlsSequentially(request);
+	}
+	
+	@PostMapping("/benchmark/async")
+	public UrlResponse processAsync(@RequestBody UrlRequest request) {
+		return service.processUrlsConcurrentlyAsync(request);
+	}
 }

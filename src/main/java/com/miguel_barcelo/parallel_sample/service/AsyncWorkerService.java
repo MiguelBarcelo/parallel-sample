@@ -15,7 +15,9 @@ public class AsyncWorkerService {
 	public CompletableFuture<String> simulateDownload(String url) {
 		
 		String thread = Thread.currentThread().getName();
+		
 		log.info("➡️ [{}] started in thread {}", url, thread);
+		
 		long t1 = System.currentTimeMillis();
 		
 		try {
@@ -26,6 +28,7 @@ public class AsyncWorkerService {
 		}
 		
 		long t2 = System.currentTimeMillis();
+		
 		log.info("✅ [{}] completed in {} ms (thread {})", url, (t2 - t1), thread);
 		
 		String result = "Processed " + url + " in thread " + thread;
